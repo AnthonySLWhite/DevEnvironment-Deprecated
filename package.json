@@ -1,0 +1,37 @@
+{
+  "name": "project-start",
+  "version": "0.0.1",
+  "description": "Base files for new project!",
+  "scripts": {
+    "start": "npm-run-all --silent --parallel security-check browser-sync lint:watch",
+    "share": "npm-run-all --silent --parallel start public-share",
+    "browser-sync": "browser-sync start --server src --files \"src/*\" --port 2121",
+    "security-check": "nsp check",
+    "public-share": "lt --port 2121 --subdomain blancode",
+    "lint": "esw buildScripts webpack.config.* src",
+    "lint:watch": "npm run lint -- --watch",
+    "srcServer": "babel-node buildScripts/srcServer.js"
+  },
+  "author": "Anthony White",
+  "license": "",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "6.16.0",
+    "babel-core": "6.17.0",
+    "babel-loader": "6.2.5",
+    "babel-preset-env": "",
+    "babel-register": "6.16.3",
+    "cross-env": "3.1.3",
+    "eslint": "^3.19.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-config-problems": "^0.1.1",
+    "eslint-plugin-fp": "^2.3.0",
+    "eslint-plugin-import": "2.0.1",
+    "eslint-watch": "2.1.14",
+    "express": "4.14.0",
+    "localtunnel": "1.8.1",
+    "node-sass": "^4.8.3",
+    "npm-run-all": "3.1.1",
+    "nsp": "2.6.2"
+  }
+}
