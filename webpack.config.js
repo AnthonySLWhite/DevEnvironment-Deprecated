@@ -3,7 +3,7 @@ var path = require('path');
 module.exports = {
     watch: true,
     //Creates a bundle out of app.js with babel-polyfill appended
-    entry: [/*"babel-polyfill", */(__dirname + '/src/js/app.js')],
+    entry: [/*"babel-polyfill", */(__dirname + '/src/assets/js/app.js')],
     output: {
         path: path.join(__dirname, '/src/Assets'),
         filename: 'index.js'
