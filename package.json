@@ -3,17 +3,17 @@
   "version": "0.0.1",
   "description": "Base files for new project!",
   "scripts": {
-    "start": "npm-run-all --parallel webpack sass:build sass security-check browser-sync",
+    "start": "npm-run-all --parallel parcel security-check browser-sync",
     "start:build": "npm-run-all --parallel build browser-sync",
-    "build": "npm-run-all --sequential webpack:build security-check sass:build prefixer",
+    "build": "npm-run-all --sequential parcel:build security-check sass:build prefixer",
     "share": "npm-run-all --silent --parallel start public-share",
     "browser-sync": "browser-sync start --server dist --files \"dist/\" --port 2121",
     "public-share": "lt --port 2121 --subdomain blancode",
-    "sass": "node-sass --watch -r --include-path \"src/assets/css\" -o \"dist\" --source-map true \"src/assets/css/\"",
-    "sass:build": "node-sass -o \"dist\" --source-map true \"src/assets/css\"",
-    "prefixer": "postcss -r --config postcss.config.js \"dist/styles.css\" ",
-    "webpack": "webpack -d -w",
-    "webpack:build": "webpack -p",
+    "sass": "node-sass --watch -r --include-path \"src/assets/css\" -o \"src/assets\" --source-map true \"src/assets/css/\"",
+    "sass:build": "node-sass -o \"src/assets\" --source-map true \"src/assets/css\"",
+    "prefixer": "postcss -r --config postcss.config.js \"src/assets/styles.css\" ",
+    "parcel": "parcel watch src/index.html",
+    "parcel:build": "parcel build src/index.html",
     "security-check": "nsp check"
   },
   "author": "Anthony White",
@@ -39,9 +39,8 @@
     "node-sass": "^4.9.0",
     "npm-run-all": "^3.1.1",
     "nsp": "2.6.2",
+    "parcel-bundler": "^1.8.1",
     "postcss": "^6.0.22",
-    "postcss-cli": "^5.0.0",
-    "webpack": "4.6.0",
-    "webpack-cli": "2.0.15"
+    "postcss-cli": "^5.0.0"
   }
 }
