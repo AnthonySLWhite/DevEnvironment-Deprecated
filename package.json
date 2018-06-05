@@ -5,7 +5,7 @@
   "scripts": {
     "start": "npm-run-all --parallel sass:build sass parcel security-check browser-sync",
     "start:build": "npm-run-all --sequential build browser-sync",
-    "build": "npm-run-all --sequential sass:build prefixer parcel:build security-check",
+    "build": "npm-run-all --sequential delete-dist sass:build prefixer parcel:build security-check",
     "share": "npm-run-all --silent --parallel start public-share",
     "browser-sync": "browser-sync start --server dist --files \"dist/\" --port 2121",
     "public-share": "lt --port 2121 --subdomain blancode",
@@ -14,7 +14,8 @@
     "prefixer": "postcss -r --config postcss.build.config.js \"src/assets/styles.css\" ",
     "parcel": "parcel watch src/index.html",
     "parcel:build": "parcel build src/index.html",
-    "security-check": "nsp check"
+    "security-check": "nsp check",
+    "delete-dist": "rmdir /s /q dist"
   },
   "author": "Anthony White",
   "license": "",
