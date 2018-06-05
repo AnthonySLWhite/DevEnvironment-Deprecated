@@ -1,2 +1,2 @@
-
-import './assets/styles.css'
+import "./index.html";
+import "./assets/styles.css";
