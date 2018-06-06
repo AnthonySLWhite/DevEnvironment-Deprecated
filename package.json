@@ -3,18 +3,19 @@
   "version": "0.0.1",
   "description": "Base files for new project!",
   "scripts": {
-    "start": "npm-run-all --parallel webpack sass:build sass security-check browser-sync",
-    "start:build": "npm-run-all --parallel build browser-sync",
-    "build": "npm-run-all --sequential webpack:build security-check sass:build prefixer",
+    "start": "npm-run-all --parallel del-dist sass:build sass parcel security-check browser-sync",
+    "start:build": "npm-run-all --sequential del-dist build browser-sync",
+    "build": "npm-run-all --sequential del-dist sass:build prefixer parcel:build security-check",
     "share": "npm-run-all --silent --parallel start public-share",
     "browser-sync": "browser-sync start --server dist --files \"dist/\" --port 2121",
     "public-share": "lt --port 2121 --subdomain blancode",
-    "sass": "node-sass --watch -r --include-path \"src/assets/css\" -o \"dist\" --source-map true \"src/assets/css/\"",
-    "sass:build": "node-sass -o \"dist\" --source-map true \"src/assets/css\"",
-    "prefixer": "postcss -r --config postcss.config.js \"dist/styles.css\" ",
-    "webpack": "webpack -d -w",
-    "webpack:build": "webpack -p",
-    "security-check": "nsp check"
+    "sass": "node-sass --watch -r --include-path \"src/assets/css\" -o \"src\" --source-map true \"src/assets/css/\"",
+    "sass:build": "node-sass -o \"src\" --source-map true \"src/assets/css\"",
+    "prefixer": "postcss -r --config postcss.build.config.js \"src/styles.css\" ",
+    "parcel": "parcel watch src/index.html",
+    "parcel:build": "parcel build src/index.html",
+    "security-check": "nsp check",
+    "del-dist": "rmdir /s /q dist"
   },
   "author": "Anthony White",
   "license": "",
@@ -28,7 +29,8 @@
     "babel-core": "6.17.0",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
-    "browser-sync": "^2.24.4",
+    "babel-preset-react": "6.24.1",
+    "browser-sync": "2.23.7",
     "cssnano": "^3.10.0",
     "eslint": "^3.19.0",
     "eslint-config-google": "0.9.1",
@@ -39,9 +41,8 @@
     "node-sass": "^4.9.0",
     "npm-run-all": "^3.1.1",
     "nsp": "2.6.2",
+    "parcel-bundler": "^1.8.1",
     "postcss": "^6.0.22",
-    "postcss-cli": "^5.0.0",
-    "webpack": "4.6.0",
-    "webpack-cli": "2.0.15"
+    "postcss-cli": "^5.0.0"
   }
 }
