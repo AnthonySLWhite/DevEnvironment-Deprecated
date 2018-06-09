@@ -15,7 +15,7 @@
     "parcel": "parcel watch src/index.html",
     "parcel:build": "parcel build src/index.html",
     "security-check": "nsp check",
-    "del-dist": "rmdir /s /q dist"
+    "del-dist": "IF EXIST dist rmdir /s /q dist"
   },
   "author": "Anthony White",
   "license": "",
