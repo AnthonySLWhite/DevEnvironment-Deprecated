@@ -12,8 +12,8 @@
     "sass": "node-sass --watch -r --include-path \"src/assets/css\" -o \"src/assets/css\" --source-map true \"src/assets/css/\"",
     "sass:build": "node-sass -o \"src/assets/css\" --source-map true \"src/assets/css\"",
     "prefixer": "postcss -r --config postcss.build.config.js \"src/assets/css/style.css\" ",
-    "parcel": "parcel watch src/index.html",
-    "parcel:build": "parcel build src/index.html",
+    "parcel": "parcel watch src/app.js",
+    "parcel:build": "parcel build src/app.js",
     "security-check": "nsp check",
     "del-dist": "IF EXIST dist rmdir /s /q dist"
   },
