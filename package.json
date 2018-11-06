@@ -1,7 +1,7 @@
 {
-  "name": "project-start",
+  "name": "DevEnv-DOM",
   "version": "1.0.0",
-  "description": "Base files for new project!",
+  "description": "Base files for new DOM project!",
   "scripts": {
     "start": "npm-run-all --parallel sass:build sass parcel security-check browser-sync",
     "start:build": "npm-run-all --sequential del-dist build browser-sync",
@@ -14,8 +14,7 @@
     "prefixer": "postcss -r --config postcss.build.config.js \"src/assets/css/style.css\" ",
     "parcel": "parcel watch src/index.html",
     "parcel:build": "parcel build src/index.html",
-    "security-check": "nsp check",
-    "del-dist": "IF EXIST dist rmdir /s /q dist"
+    "security-check": "nsp check"
   },
   "author": "Anthony White",
   "license": "",
