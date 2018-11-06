@@ -1,7 +1,7 @@
 {
   "name": "DevEnv-Node",
   "version": "1.0.0",
-  "description": "Base files for new project!",
+  "description": "Base files for new Node project!",
   "scripts": {
     "start": "npm-run-all --parallel env-dev parcel nodemon",
     "start:build": "npm-run-all --sequential env-prod del-dist build nodemon",
