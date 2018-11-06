@@ -1,4 +1,4 @@
-# Start-Dev_Environment
+# DevEnvironment
 Features (BrowserSync, Parcel(JS Bundler and JSX), Babel (with polyfill),React, ESLint (FP), Sass, PostCss, Local Tunnel, Security check)
 
 **Run on the terminal:** 
