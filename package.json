@@ -1,6 +1,6 @@
 {
   "name": "project-start",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Base files for new project!",
   "scripts": {
     "start": "npm-run-all --parallel sass:build sass parcel security-check browser-sync",
@@ -25,9 +25,9 @@
     "react-dom": "^16.3.2"
   },
   "devDependencies": {
-    "autoprefixer": "^8.4.1",
+    "autoprefixer": "^8.6.5",
     "babel-core": "6.17.0",
-    "babel-loader": "^7.1.4",
+    "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "6.24.1",
     "browser-sync": "2.23.7",
@@ -37,12 +37,12 @@
     "eslint-config-problems": "0.1.1",
     "eslint-plugin-fp": "2.3.0",
     "eslint-plugin-import": "^2.12.0",
-    "localtunnel": "^1.9.0",
-    "node-sass": "^4.9.0",
-    "npm-run-all": "^3.1.1",
+    "localtunnel": "^1.9.1",
+    "node-sass": "^4.10.0",
+    "npm-run-all": "^3.1.2",
     "nsp": "2.6.2",
-    "parcel-bundler": "^1.8.1",
-    "postcss": "^6.0.22",
-    "postcss-cli": "^5.0.0"
+    "parcel-bundler": "^1.10.3",
+    "postcss": "^6.0.23",
+    "postcss-cli": "^5.0.1"
   }
 }
