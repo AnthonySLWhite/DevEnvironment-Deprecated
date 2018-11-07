@@ -7,8 +7,8 @@
     "start:build": "npm-run-all --sequential env-prod del-dist build nodemon",
     "build": "npm-run-all --sequential del-dist env-prod parcel:build security-check",
     "nodemon": "nodemon ./dist/app.js",
-    "parcel": "parcel watch src/app.js --target node",
-    "parcel:build": "parcel build src/app.js --target node",
+    "parcel": "parcel watch src/app.js --public-url ./ --target node",
+    "parcel:build": "parcel build src/app.js --public-url ./ --target node",
     "env-prod": "cross-env NODE_ENV=production",
     "env-dev": "cross-env NODE_ENV=development",
     "security-check": "nsp check"
