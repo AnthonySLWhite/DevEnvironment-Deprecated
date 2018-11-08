@@ -7,6 +7,7 @@
     "start:build": "npm-run-all --sequential env-prod del-dist build nodemon",
     "build": "npm-run-all --sequential del-dist env-prod parcel:build security-check",
     "bundle": "npm-run-all env-dev parcel",
+    "browser-sync": "browser-sync start --files ./dist/ --proxy http://localhost:2120/ --port 2121",
     "nodemon": "nodemon ./dist/app.js",
     "debug": "nodemon --inspect-brk ./dist/app.js",
     "parcel": "parcel watch src/app.js --public-url ./ --target node",
@@ -19,7 +20,9 @@
   "license": "",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "chalk": "^2.4.1",
     "dotenv": "^6.1.0",
+    "express": "^4.16.4",
     "react": "^16.3.2",
     "react-dom": "^16.3.2"
   },
@@ -28,6 +31,7 @@
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "6.24.1",
+    "browser-sync": "^2.26.3",
     "cross-env": "^5.2.0",
     "eslint": "^3.19.0",
     "eslint-config-google": "0.9.1",
