@@ -4,7 +4,7 @@
   "description": "Base files for new Node project!",
   "scripts": {
     "heroku-prebuild": "npm-run-all parcel:build",
-    "prepublishOnly": "npm-run-all parcel:build",
+    "prepack": "npm-run-all parcel:build",
     "start": "npm-run-all nodemon-dev",
     "code": "npm-run-all --parallel parcel nodemon-dev",
     "code:build": "npm-run-all --sequential env-prod del-dist build nodemon-prod",
@@ -32,7 +32,7 @@
     "babel-core": "6.17.0",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "6.24.1","build": "npm-run-all --sequential parcel:build security-check",
+    "babel-preset-react": "6.24.1",
     "cross-env": "^5.2.0",
     "eslint": "^3.19.0",
     "eslint-config-google": "0.9.1",
