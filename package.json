@@ -15,9 +15,8 @@
     "nodemon-dev": "cross-env NODE_ENV=development nodemon ./dist/app.js",
     "nodemon-prod": "cross-env NODE_ENV=production nodemon ./dist/app.js",
     "debug": "nodemon --inspect-brk ./dist/app.js",
-    "parcel": "parcel watch src/app.js --public-url ./ --target node",
-    "parcel:build": "parcel build src/app.js --public-url ./ --target node",
-    "del-dist": "del dist",
+    "parcel": "parcel watch app.js --public-url ./ --target node",
+    "parcel:build": "parcel build app.js --public-url ./ --target node",
     "security-check": "nsp check"
   },
   "author": "Anthony White",
