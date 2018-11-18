@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Base files for new Node project!",
   "scripts": {
-    "preinstall": "npm-run-all parcel:build",
+    "heroku-prebuild": "npm-run-all parcel:build",
+    "prepublishOnly": "npm-run-all parcel:build",
     "start": "npm-run-all nodemon-dev",
     "code": "npm-run-all --parallel parcel nodemon-dev",
     "code:build": "npm-run-all --sequential env-prod del-dist build nodemon-prod",
