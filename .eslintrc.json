@@ -1,5 +1,8 @@
 {
   "root": true,
+  "globals": {
+    "WebAssembly": false
+  },
   "env": {
     "es6": true,
     "browser": true,
@@ -13,13 +16,8 @@
       "jsx": false
     }
   },
-  "extends": [
-    "google",
-    "problems"
-  ],
-  "plugins": [
-    "fp"
-  ],
+  "extends": ["google", "problems"],
+  "plugins": ["fp"],
   "rules": {
     "no-console": 1,
     "//Functional Programming--------------": 0,
@@ -48,6 +46,6 @@
     "no-buffer-constructor": 0,
     "strict": 0,
     "switch-colon-spacing": 0,
-    "newline-per-chained-call": [2, {"ignoreChainWithDepth": 2}]
+    "newline-per-chained-call": [2, { "ignoreChainWithDepth": 2 }]
   }
 }
