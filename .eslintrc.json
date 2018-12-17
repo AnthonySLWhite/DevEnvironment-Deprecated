@@ -1,8 +1,5 @@
 {
   "root": true,
-  "globals": {
-    "WebAssembly": false
-  },
   "env": {
     "es6": true,
     "browser": true,
@@ -13,7 +10,7 @@
     "ecmaVersion": 6,
     "sourceType": "module",
     "ecmaFeatures": {
-      "jsx": false
+      "jsx": true
     }
   },
   "extends": ["google", "problems"],
