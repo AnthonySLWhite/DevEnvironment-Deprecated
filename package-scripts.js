@@ -161,5 +161,20 @@ module.exports = {
         hiddenFromHelp: true,
       },
     },
+    /*
+    <==========================================>
+    <                  EsLint                  >
+    <==========================================>
+    */
+    eslint: {
+      default: {
+        script: 'eslint --fix src/app.js',
+        hiddenFromHelp: true,
+      },
+    },
+    prettierEslint:
+      'prettier-eslint --eslint-config-path .eslintrc.json --trailing-comma all --single-quote true "src/**/*.js"',
+    test: 'eslint --print-config .eslintrc.json | eslint-config-prettier-check',
+    upgradeInteractive: 'npm-check --update',
   },
 };
