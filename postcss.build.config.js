@@ -6,11 +6,11 @@ module.exports = {
         'default',
         {
           discardComments: {
-            removeAll: true
+            removeAll: true,
           },
-          autoprefixer: true
-        }
-      ]
-    })
-  ]
+          autoprefixer: true,
+        },
+      ],
+    }),
+  ],
 };

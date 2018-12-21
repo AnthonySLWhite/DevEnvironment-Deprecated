@@ -1,13 +1,19 @@
 const npsUtils = require('nps-utils');
 module.exports = {
   scripts: {
-    // prettier: 'prettier --config ./.prettierrc.js src/app.js --write',
-    // eslint: 'eslint --fix src/app.js',
-    // test: 'eslint --print-config .eslintrc.json | eslint-config-prettier-check',
     default: {
       // NPM START for deployment
       script: 'nps nodemon.node.production',
       hiddenFromHelp: true,
+    },
+    build: {
+      script: npsUtils.series.nps(
+        'sass.build',
+        'sass.prefixer',
+        'parcel.dom.build',
+        'parcel.node.build',
+      ),
+      description: 'Build both Node and DOM for production',
     },
     /*
     <==========================================>
@@ -17,23 +23,44 @@ module.exports = {
     node: {
       // Development mode
       default: {
-        script: npsUtils.concurrent.nps('parcel.node', 'nodemon-dev'),
+        script: npsUtils.concurrent.nps(
+          'parcel.node',
+          'nodemon.node',
+        ),
         description: 'Development mode for Node.js',
       },
       // Builds
       build: {
         default: {
-          script: npsUtils.concurrent.nps('parcel:build'),
+          script: npsUtils.series.nps('parcel.node.build'),
           description: 'Build Node.js project',
         },
         run: {
-          script: npsUtils.series.nps('parcel:build', 'nodemon-prod'),
+          script: npsUtils.series.nps(
+            'parcel.node.build',
+            'nodemon.node',
+          ),
           description: 'Build Node.js project and run server',
+        },
+      },
+      test: {
+        default: {
+          script:
+            'cross-env NODE_ENV=development mocha --require babel-core/register src/**/*.test.js',
+          description: 'Mocha test',
+        },
+        watch: {
+          script:
+            'cross-env NODE_ENV=development nodemon --exec "npm start test"',
+          description: 'Mocha test watcher',
         },
       },
       // Debug mode
       debug: {
-        script: npsUtils.concurrent.nps('parcel.node', 'nodemon.node.debug'),
+        script: npsUtils.concurrent.nps(
+          'parcel.node',
+          'nodemon.node.debug',
+        ),
         description: 'Debug Node.js project',
       },
     },
@@ -45,19 +72,42 @@ module.exports = {
     dom: {
       // Development mode
       default: {
-        script: npsUtils.concurrent.nps('sass', 'parcel-frontend', 'nodemon-frontend'),
+        script: npsUtils.concurrent.nps(
+          'sass',
+          'parcel.dom',
+          'nodemon.dom',
+        ),
         description: 'Development mode for DOM',
       },
       // Builds
       build: {
         default: {
-          script: npsUtils.series.nps('sass:build', 'prefixer', 'parcel-frontend:build'),
+          script: npsUtils.series.nps(
+            'sass.build',
+            'sass.prefixer',
+            'parcel.dom.build',
+          ),
           description: 'Build DOM project',
         },
         run: {
-          script: npsUtils.series.nps('sass:build', 'prefixer', 'parcel-frontend:build', 'nodemon-frontend'),
+          script: npsUtils.series.nps(
+            'sass.build',
+            'sass.prefixer',
+            'parcel.dom.build',
+            'nodemon.dom',
+          ),
           description: 'Build DOM project and run server',
         },
+      },
+      test: {
+        /*
+        TODO
+        - Summary: Testing for Frontend
+        * Description: Testing tool might get added in the future
+        */
+        script: '',
+        description: '',
+        hiddenFromHelp: true,
       },
     },
     /*
@@ -69,11 +119,13 @@ module.exports = {
       node: {
         // Default as development
         default: {
-          script: 'cross-env NODE_ENV=development nodemon ./dist/app.js',
+          script:
+            'cross-env NODE_ENV=development nodemon ./dist/app.js',
           hiddenFromHelp: true,
         },
         production: {
-          script: 'cross-env NODE_ENV=production nodemon ./prod/app.js',
+          script:
+            'cross-env NODE_ENV=production nodemon ./prod/app.js',
           hiddenFromHelp: true,
         },
         debug: {
@@ -84,7 +136,8 @@ module.exports = {
 
       dom: {
         default: {
-          script: 'cross-env NODE_ENV=production FrontEnd=true nodemon ./prod/app.js',
+          script:
+            'cross-env NODE_ENV=production FrontEnd=true nodemon ./prod/app.js',
           hiddenFromHelp: true,
         },
       },
@@ -97,11 +150,13 @@ module.exports = {
     parcel: {
       node: {
         default: {
-          script: 'cross-env NODE_ENV=development parcel watch src/app.js --public-url ./ --target node',
+          script:
+            'cross-env NODE_ENV=development parcel watch src/app.js --public-url ./ --target node',
           hiddenFromHelp: true,
         },
         build: {
-          script: 'cross-env NODE_ENV=production parcel build src/app.js --public-url ./ --out-dir prod --target node',
+          script:
+            'cross-env NODE_ENV=production parcel build src/app.js --public-url ./ --out-dir prod --target node',
           hiddenFromHelp: true,
         },
       },
@@ -130,7 +185,8 @@ module.exports = {
         hiddenFromHelp: true,
       },
       build: {
-        script: 'node-sass -o "public/src/assets/css" --source-map true "public/src/assets/css"',
+        script:
+          'node-sass -o "public/src/assets/css" --source-map true "public/src/assets/css"',
         hiddenFromHelp: true,
       },
       watch: {
@@ -139,7 +195,8 @@ module.exports = {
         hiddenFromHelp: true,
       },
       prefixer: {
-        script: 'postcss -r --config postcss.build.config.js "public/src/assets/css/style.css"',
+        script:
+          'postcss -r --config postcss.build.config.js "public/src/assets/css/style.css"',
         hiddenFromHelp: true,
       },
     },
@@ -150,13 +207,29 @@ module.exports = {
     */
     eslint: {
       default: {
-        script: 'eslint --fix src/app.js',
+        script: 'eslint --fix --no-ignore **/*.js',
         hiddenFromHelp: true,
       },
     },
-    prettierEslint:
-      'prettier-eslint --eslint-config-path .eslintrc.json --trailing-comma all --single-quote true "src/**/*.js"',
-    test: 'eslint --print-config .eslintrc.json | eslint-config-prettier-check',
-    upgradeInteractive: 'npm-check --update',
+    /*
+    <==========================================>
+    <                  MongoDB                 >
+    <==========================================>
+    */
+    // <-------------- Add your own MongoDB path --------------> //
+    mongodb: {
+      script: 'mongod.exe --dbpath \\path-to-MongoDB-data\\',
+      description: 'Run MongoDB server',
+      hiddenFromHelp: true,
+    },
+    /*
+    <==========================================>
+    <                  Others                  >
+    <==========================================>
+    */
+    update: {
+      script: 'npm-check -u',
+      description: 'Package interactive updater',
+    },
   },
 };
