@@ -15,7 +15,12 @@
       "impliedStrict": true
     }
   },
-  "extends": ["google", "problems", "plugin:prettier/recommended"],
+  "extends": [
+    "google",
+    "problems",
+    "plugin:prettier/recommended",
+    "prettier/react"
+  ],
   "plugins": ["prettier", "fp"],
   "rules": {
     "no-console": 1,
@@ -46,14 +51,24 @@
     "strict": 2,
     "switch-colon-spacing": 0,
     "consistent-return": 0,
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always",
+        "objects": "always",
+        "imports": "ignore",
+        "exports": "ignore",
+        "functions": "ignore"
+      }
+    ],
     "////Others": "-------------------------------------------------------------------------",
     "prettier/prettier": [
       1,
       {
         "singleQuote": true,
         "trailingComma": "all",
+        "printWidth": 120,
         "eslintIntegration": true
-        
       }
     ]
   }

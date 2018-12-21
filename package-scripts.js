@@ -45,30 +45,17 @@ module.exports = {
     dom: {
       // Development mode
       default: {
-        script: npsUtils.concurrent.nps(
-          'sass',
-          'parcel-frontend',
-          'nodemon-frontend',
-        ),
+        script: npsUtils.concurrent.nps('sass', 'parcel-frontend', 'nodemon-frontend'),
         description: 'Development mode for DOM',
       },
       // Builds
       build: {
         default: {
-          script: npsUtils.series.nps(
-            'sass:build',
-            'prefixer',
-            'parcel-frontend:build',
-          ),
+          script: npsUtils.series.nps('sass:build', 'prefixer', 'parcel-frontend:build'),
           description: 'Build DOM project',
         },
         run: {
-          script: npsUtils.series.nps(
-            'sass:build',
-            'prefixer',
-            'parcel-frontend:build',
-            'nodemon-frontend',
-          ),
+          script: npsUtils.series.nps('sass:build', 'prefixer', 'parcel-frontend:build', 'nodemon-frontend'),
           description: 'Build DOM project and run server',
         },
       },
@@ -97,8 +84,7 @@ module.exports = {
 
       dom: {
         default: {
-          script:
-            'cross-env NODE_ENV=production FrontEnd=true nodemon ./prod/app.js',
+          script: 'cross-env NODE_ENV=production FrontEnd=true nodemon ./prod/app.js',
           hiddenFromHelp: true,
         },
       },
@@ -111,13 +97,11 @@ module.exports = {
     parcel: {
       node: {
         default: {
-          script:
-            'cross-env NODE_ENV=development parcel watch src/app.js --public-url ./ --target node',
+          script: 'cross-env NODE_ENV=development parcel watch src/app.js --public-url ./ --target node',
           hiddenFromHelp: true,
         },
         build: {
-          script:
-            'cross-env NODE_ENV=production parcel build src/app.js --public-url ./ --out-dir prod --target node',
+          script: 'cross-env NODE_ENV=production parcel build src/app.js --public-url ./ --out-dir prod --target node',
           hiddenFromHelp: true,
         },
       },
@@ -146,8 +130,7 @@ module.exports = {
         hiddenFromHelp: true,
       },
       build: {
-        script:
-          'node-sass -o "public/src/assets/css" --source-map true "public/src/assets/css"',
+        script: 'node-sass -o "public/src/assets/css" --source-map true "public/src/assets/css"',
         hiddenFromHelp: true,
       },
       watch: {
@@ -156,8 +139,7 @@ module.exports = {
         hiddenFromHelp: true,
       },
       prefixer: {
-        script:
-          'postcss -r --config postcss.build.config.js "public/src/assets/css/style.css"',
+        script: 'postcss -r --config postcss.build.config.js "public/src/assets/css/style.css"',
         hiddenFromHelp: true,
       },
     },
