@@ -8,9 +8,6 @@
   },
   "author": "Anthony White",
   "license": "",
-  "eslintIgnore": [
-    "!.eslintrc.js"
-  ],
   "dependencies": {
     "@babel/polyfill": "^7.2.3",
     "chalk": "^2.4.1",
@@ -45,6 +42,7 @@
     "nps-utils": "^1.7.0",
     "parcel-bundler": "^1.11.0",
     "postcss": "^7.0.7",
-    "postcss-cli": "^6.1.0"
+    "postcss-cli": "^6.1.0",
+    "prettier": "^1.15.3"
   }
 }
