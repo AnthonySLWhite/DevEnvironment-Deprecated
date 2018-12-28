@@ -1,64 +1,127 @@
-# Product Name
+# DevEnvironment
 
-> Short blurb about what your product does.
+## You can use it for
 
-[![NPM Version][npm-image]][npm-url]
+- Static pages
+  - React (optional)
+  - Vue (still on development)
+- Node.js
+  - API
+  - Web Server
+  - CLI
+- Node.js API serving static pages using React (optional)
 
-[![Build Status][travis-image]][travis-url]
+## Easy Guide
 
-[![Downloads Stats][npm-downloads]][npm-url]
+Download by order
 
-One to two paragraph statement about your product and what it does.
+- [VSCode]
+- [Settings Sync]
 
-![image](readme.png)
+In **VSCode**
 
-## Installation
+- Press F1 and go to
 
-OS X & Linux:
+  - 'Sync: Advanced Options'
+  - 'Download settings from public Gist'
 
-```sh
-npm install my-crazy-module --save
-```
+- Press F1 again and go to
+  - 'Sync: Download settings'
+  - Write this code `6f8c59082e58b005f1dd38a7236eeeaf`
 
-Windows:
+**Now just download the boilerplate code you wish to use!**
 
-```sh
-edit autoexec.bat
-```
+- Open terminal on the root directory and write:
+  - `npm install`
+- For the instructions write on the terminal:
+  - `npm start help`
 
-## Usage example
+**It's done!**
 
-A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
+You will see a similar file structure to this one depending on the project you choose!
+![image](readme.png "Node-React-API file structure")
 
-_For more examples and usage, please refer to the [Wiki][wiki]._
+## Guide
+
+### For a more advanced user
+
+- Make sure you have **EsLint** installed in your Code Editor
+- Enable `eslint.autoFixOnSave`
+
+**Note:**
+If you have **prettier** installed in your code editor then disable it for **Javascript**
+
+- `"prettier.disableLanguages": ["javascript"]`
 
 ## Development setup
 
-Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
+**Depending on the boilerplate project you choose you will have some or all of these options**
 
-```sh
-make install
-npm test
-```
+To run any of these commands write `npm start` followed by:
+
+- `help` - See all commands available
+- `build` - Build Node or DOM or both projects for production
+- `node` - Development mode for Node.js
+- `node.build` - Build Node.js project
+- `node.build.run` - Build Node.js project and run server
+- `node.test` - Mocha test
+- `node.test.watch` - Mocha test watcher
+- `node.debug` - Debug Node.js project
+- `dom` - Development mode for DOM
+- `dom.build` - Build DOM project
+- `dom.build.run` - Build DOM project and run server
+- `update` - Package interactive updater
+
+Example: `npm start node`
+
+<!-- _For more examples and usage, please refer to the [Wiki][wiki]._ -->
+
+## Usage
+
+You can code normally as you would in any project with some aditions
+
+- Babel
+- Imports
+  - `import './example.js'` Import a whole file
+  - `import exported_data from './example.js'` Import exported objects, functions or primitive values
+  - `export default exported_data` Export statement
+  - For more info on imports and exports [click here][import-export]
+- View Libraries
+  - [React.js]
+- Stylesheets
+  - [SASS]
+  - [CSS-Nano]
+  - [Autoprefixer]
+  - Import the compiled sass file in your JS file like this `import './style.css'`
+  - For more info on the sass syntax [click here][sass-guide]
+- Formatting and linting
+  - [EsLint]
+    - Google Config
+    - Functional Programming config
+    - Prettier config
+  - [Prettier]
+- Web Server
+  - [Express.js]
+  - [BrowserSync]
+  - [LocalTunnel] for exposing localhost online
+- Testing
+  - [Mocha]
+  - [Expect]
+  - [Supertest]
+- Utils
+  - [Nodemon]
+  - [DotEnv]
+  - [Chalk]
 
 ## Release History
 
-- 0.2.1
-  - CHANGE: Update docs (module code remains unchanged)
-- 0.2.0
-  - CHANGE: Remove `setDefaultXYZ()`
-  - ADD: Add `init()`
-- 0.1.1
-  - FIX: Crash when calling `baz()` (Thanks @GenerousContributorName!)
-- 0.1.0
-  - The first proper release
-  - CHANGE: Rename `foo()` to `bar()`
-- 0.0.1
-  - Work in progress
+- 1.0.0 :
+  - Organized code and added comments for public
+  - Added NSP for better npm scripts management
 
 ## Meta
 
-Your Name – [@YourTwitter](https://twitter.com/dbader_org) – YourEmail@example.com
+[Anthony White] – me@anthonywhite.eu
 
 Distributed under the XYZ license. See `LICENSE` for more information.
 
@@ -66,7 +129,7 @@ Distributed under the XYZ license. See `LICENSE` for more information.
 
 ## Contributing
 
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
+1. Fork it (<https://github.com/AnthonySLWhite/DevEnvironment/fork>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
@@ -74,9 +137,24 @@ Distributed under the XYZ license. See `LICENSE` for more information.
 
 <!-- Markdown link & img dfn's -->
 
-[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/datadog-metrics
-[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
+[settings sync]: https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync
+[vscode]: https://code.visualstudio.com/
+[import-export]: https://hackernoon.com/import-export-default-require-commandjs-javascript-nodejs-es6-vs-cheatsheet-different-tutorial-example-5a321738b50f
+[react.js]: https://reactjs.org/
+[sass]: https://sass-lang.com
+[autoprefixer]: https://github.com/postcss/autoprefixer#readme
+[css-nano]: https://github.com/cssnano/cssnano
+[sass-guide]: https://sass-lang.com/guide
+[eslint]: https://eslint.org/
+[prettier]: https://prettier.io/
+[express.js]: http://expressjs.com/
+[browsersync]: https://www.browsersync.io/
+[localtunnel]: https://localtunnel.github.io/www/
+[mocha]: https://mochajs.org/
+[expect]: https://devhints.io/expectjs
+[supertest]: https://github.com/visionmedia/supertest#readme
+[nodemon]: https://nodemon.io/
+[dotenv]: https://github.com/motdotla/dotenv#readme
+[chalk]: https://github.com/chalk/chalk#readme
 [wiki]: https://github.com/yourname/yourproject/wiki
+[anthony white]: https://anthonywhite.eu
