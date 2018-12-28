@@ -27,7 +27,7 @@ In **VSCode**
 
 - Press F1 again and go to
   - 'Sync: Download settings'
-  - Write this code `6f8c59082e58b005f1dd38a7236eeeaf`
+  - Write this code **`6f8c59082e58b005f1dd38a7236eeeaf`**
 
 **Now just download the boilerplate code you wish to use!**
 
@@ -59,7 +59,7 @@ If you have **prettier** installed in your code editor then disable it for **Jav
 
 To run any of these commands write `npm start` followed by:
 
-- `help` - See all commands available
+- `help` - See all commands available for current project
 - `build` - Build Node or DOM or both projects for production
 - `node` - Development mode for Node.js
 - `node.build` - Build Node.js project
@@ -70,6 +70,7 @@ To run any of these commands write `npm start` followed by:
 - `dom` - Development mode for DOM
 - `dom.build` - Build DOM project
 - `dom.build.run` - Build DOM project and run server
+- `localTunnel` - Expose localhost port 3000
 - `update` - Package interactive updater
 
 Example: `npm start node`

@@ -227,6 +227,10 @@ module.exports = {
     <                  Others                  >
     <==========================================>
     */
+    localTunnel: {
+      script: 'lt --port 3000',
+      description: 'Expose localhost port 3000',
+    },
     update: {
       script: 'npm-check -u',
       description: 'Package interactive updater',
