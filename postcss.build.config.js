@@ -3,13 +3,14 @@ module.exports = {
     require('autoprefixer'),
     require('cssnano')({
       preset: [
-        'default', {
+        'default',
+        {
           discardComments: {
-            removeAll: false
+            removeAll: true,
           },
-          autoprefixer: false
-        }
-      ]
-    })
-  ]
+          autoprefixer: true,
+        },
+      ],
+    }),
+  ],
 };
