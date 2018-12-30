@@ -118,7 +118,7 @@ You can code normally as you would in any project with some aditions
 
 - 1.0.0 :
   - Organized code and added comments for public
-  - Added NSP for better npm scripts management
+  - Added NPS for better npm scripts management
 
 ## Meta
 
