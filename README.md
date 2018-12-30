@@ -124,9 +124,7 @@ You can code normally as you would in any project with some aditions
 
 [Anthony White] – me@anthonywhite.eu
 
-Distributed under the XYZ license. See `LICENSE` for more information.
-
-[https://github.com/yourname/github-link](https://github.com/dbader/)
+Distributed under the MIT license. See `LICENSE` for more information.
 
 ## Contributing
 
