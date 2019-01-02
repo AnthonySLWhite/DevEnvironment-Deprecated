@@ -51,7 +51,7 @@ module.exports = {
         },
         watch: {
           script:
-            'cross-env NODE_ENV=development nodemon --exec "npm start node.test.watch"',
+            'cross-env NODE_ENV=development nodemon --exec "npm start node.test"',
           description: 'Mocha test watcher',
         },
       },
