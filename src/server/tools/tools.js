@@ -1,5 +1,10 @@
 import path from 'path';
-
+const pathFix = () => {
+  if (process.env.TESTING) {
+    return './../../';
+  }
+  return './../';
+};
 /**
  * Returns the Path of the public folder
  *
@@ -7,8 +12,8 @@ import path from 'path';
  */
 function publicPath() {
   if (process.env.FrontEnd) {
-    return path.resolve(__dirname, './../', 'public/dist');
+    return path.resolve(__dirname, pathFix(), 'public/dist');
   }
-  return path.resolve(__dirname, './../', 'public/prod');
+  return path.resolve(__dirname, pathFix(), 'public/prod');
 }
 export default { publicPath };
