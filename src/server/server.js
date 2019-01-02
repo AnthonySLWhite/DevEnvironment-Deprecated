@@ -23,3 +23,5 @@ app.listen(port, () => {
     chalk.white.bgRed(`Server started on port ${port} ...`),
   );
 });
+
+export default app;

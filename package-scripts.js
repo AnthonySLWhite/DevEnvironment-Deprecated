@@ -46,12 +46,12 @@ module.exports = {
       test: {
         default: {
           script:
-            'cross-env NODE_ENV=development mocha --require babel-core/register src/**/*.test.js',
+            'cross-env NODE_ENV=development TESTING=true mocha --require babel-core/register src/**/*.test.js',
           description: 'Mocha test',
         },
         watch: {
           script:
-            'cross-env NODE_ENV=development nodemon --exec "npm start node.test"',
+            'cross-env NODE_ENV=development TESTING=true nodemon --exec "npm start node.test"',
           description: 'Mocha test watcher',
         },
       },
