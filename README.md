@@ -47,11 +47,16 @@ You will see a similar file structure to this one depending on the project you c
 
 - Make sure you have **EsLint** installed in your Code Editor
 - Enable `eslint.autoFixOnSave`
+- Change your development port on the `PORT` variable inside `package-scripts.js`
 
 **Note:**
 If you have **prettier** installed in your code editor then disable it for **Javascript**
 
 - `"prettier.disableLanguages": ["javascript"]`
+
+### If you want to host your own **MongoDB** server go to the `package-scripts.js` find the line responsible for MongoDB and add the path for your MongoDB
+
+#### After that just run `npm start mongodb`
 
 ## Development setup
 
@@ -70,6 +75,7 @@ To run any of these commands write `npm start` followed by:
 - `dom` - Development mode for DOM
 - `dom.build` - Build DOM project
 - `dom.build.run` - Build DOM project and run server
+- `eslint` - Run Eslint Fix
 - `localTunnel` - Expose localhost port 3000
 - `update` - Package interactive updater
 
@@ -109,6 +115,7 @@ You can code normally as you would in any project with some aditions
   - [Mocha]
   - [Expect]
   - [Supertest]
+  - [Rewire]
 - Utils
   - [Nodemon]
   - [DotEnv]
@@ -152,6 +159,7 @@ Distributed under the MIT license. See `LICENSE` for more information.
 [mocha]: https://mochajs.org/
 [expect]: https://devhints.io/expectjs
 [supertest]: https://github.com/visionmedia/supertest#readme
+[rewire]: https://github.com/jhnns/rewire
 [nodemon]: https://nodemon.io/
 [dotenv]: https://github.com/motdotla/dotenv#readme
 [chalk]: https://github.com/chalk/chalk#readme
