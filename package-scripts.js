@@ -73,16 +73,16 @@ module.exports = {
         // Default as development
         default: {
           script:
-            'cross-env NODE_ENV=development nodemon ./dist/app.js',
+            'cross-env NODE_ENV=development nodemon dist/app.js',
           hiddenFromHelp: true,
         },
         production: {
           script:
-            'cross-env NODE_ENV=production nodemon ./prod/app.js',
+            'cross-env NODE_ENV=production nodemon prod/app.js',
           hiddenFromHelp: true,
         },
         debug: {
-          script: 'nodemon --inspect-brk ./dist/app.js',
+          script: 'nodemon --inspect-brk dist/app.js',
           hiddenFromHelp: true,
         },
       },
