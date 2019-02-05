@@ -36,7 +36,6 @@
     "node-sass": "^4.11.0",
     "parcel-bundler": "^1.11.0",
     "postcss": "^7.0.8",
-    "postcss-cli": "^6.1.1",
     "prettier": "^1.15.3"
   }
 }
