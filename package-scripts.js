@@ -8,8 +8,6 @@ module.exports = {
     },
     build: {
       script: npsUtils.series.nps(
-        'sass.build',
-        'sass.prefixer',
         'parcel.dom.build',
         'parcel.node.build',
       ),
@@ -73,7 +71,6 @@ module.exports = {
       // Development mode
       default: {
         script: npsUtils.concurrent.nps(
-          'sass',
           'parcel.dom',
           'nodemon.dom',
         ),
@@ -82,17 +79,11 @@ module.exports = {
       // Builds
       build: {
         default: {
-          script: npsUtils.series.nps(
-            'sass.build',
-            'sass.prefixer',
-            'parcel.dom.build',
-          ),
+          script: 'nps parcel.dom.build',
           description: 'Build DOM project',
         },
         run: {
           script: npsUtils.series.nps(
-            'sass.build',
-            'sass.prefixer',
             'parcel.dom.build',
             'nodemon.dom',
           ),
@@ -171,33 +162,6 @@ module.exports = {
             'cross-env NODE_ENV=production parcel build public/src/index.html --out-dir public/prod --target browser',
           hiddenFromHelp: true,
         },
-      },
-    },
-    /*
-    <==========================================>
-    <                  Sass/CSS                >
-    <==========================================>
-    */
-    sass: {
-      default: {
-        // Initial build of sass then watch for file changes
-        script: npsUtils.series.nps('sass.build', 'sass.watch'),
-        hiddenFromHelp: true,
-      },
-      build: {
-        script:
-          'node-sass -o "public/src/assets/css" --source-map true "public/src/assets/css"',
-        hiddenFromHelp: true,
-      },
-      watch: {
-        script:
-          'node-sass --watch -r --include-path "public/src/assets/css" -o "public/src/assets/css" --source-map true "public/src/assets/css/"',
-        hiddenFromHelp: true,
-      },
-      prefixer: {
-        script:
-          'postcss -r --config postcss.build.config.js "public/src/assets/css/style.css"',
-        hiddenFromHelp: true,
       },
     },
     /*
