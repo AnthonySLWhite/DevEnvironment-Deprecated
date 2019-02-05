@@ -11,11 +11,7 @@ module.exports = {
       hiddenFromHelp: true,
     },
     build: {
-      script: npsUtils.series.nps(
-        'sass.build',
-        'sass.prefixer',
-        'parcel.dom.build',
-      ),
+      script: 'nps parcel.dom.build',
       description: 'Build DOM for production',
     },
     /*
@@ -27,7 +23,6 @@ module.exports = {
       // Development mode
       default: {
         script: npsUtils.concurrent.nps(
-          'sass',
           'parcel.dom',
           'browserSync',
         ),
@@ -36,17 +31,11 @@ module.exports = {
       // Builds
       build: {
         default: {
-          script: npsUtils.series.nps(
-            'sass.build',
-            'sass.prefixer',
-            'parcel.dom.build',
-          ),
+          script: 'nps parcel.dom.build',
           description: 'Build DOM project',
         },
         run: {
           script: npsUtils.series.nps(
-            'sass.build',
-            'sass.prefixer',
             'parcel.dom.build',
             'browserSync.production',
           ),
@@ -96,33 +85,6 @@ module.exports = {
             'cross-env NODE_ENV=production parcel build src/index.html --out-dir prod --target browser',
           hiddenFromHelp: true,
         },
-      },
-    },
-    /*
-    <==========================================>
-    <                  Sass/CSS                >
-    <==========================================>
-    */
-    sass: {
-      default: {
-        // Initial build of sass then watch for file changes
-        script: npsUtils.series.nps('sass.build', 'sass.watch'),
-        hiddenFromHelp: true,
-      },
-      build: {
-        script:
-          'node-sass -o "src/assets/css" --source-map true "src/assets/css"',
-        hiddenFromHelp: true,
-      },
-      watch: {
-        script:
-          'node-sass --watch -r --include-path "src/assets/css" -o "src/assets/css" --source-map true "src/assets/css/"',
-        hiddenFromHelp: true,
-      },
-      prefixer: {
-        script:
-          'postcss -r --config postcss.build.config.js "src/assets/css/style.css"',
-        hiddenFromHelp: true,
       },
     },
     /*
