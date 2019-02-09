@@ -77,7 +77,7 @@ module.exports = {
       dom: {
         default: {
           script:
-            'cross-env NODE_ENV=development parcel watch src/index.html --out-dir dist --target browser',
+            'cross-env NODE_ENV=development parcel watch src/index.html --public-url ./ --out-dir dist --target browser',
           hiddenFromHelp: true,
         },
         build: {
