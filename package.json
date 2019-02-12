@@ -9,7 +9,6 @@
   "author": "Anthony White",
   "license": "",
   "dependencies": {
-    "@babel/polyfill": "^7.2.3",
     "chalk": "^2.4.1",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
