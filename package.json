@@ -9,7 +9,6 @@
   "author": "Anthony White",
   "license": "",
   "dependencies": {
-    "@babel/polyfill": "^7.2.5",
     "babel-plugin-rewire-exports": "^1.0.1",
     "body-parser": "^1.18.3",
     "chalk": "^2.4.2",
