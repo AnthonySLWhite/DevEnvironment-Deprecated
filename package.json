@@ -9,7 +9,6 @@
   "author": "Anthony White",
   "license": "",
   "dependencies": {
-    "@babel/polyfill": "^7.2.5",
     "nps": "^5.9.3",
     "nps-utils": "^1.7.0",
     "react": "^16.7.0",
